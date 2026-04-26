@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+/* page02_03? */
+/* @custom-variant dark (&:where(.dark, .dark *)) */
+
+@theme {
+    /* page02_05 */
+    /* 
+    - **주요 색상**: 선명한 파란색(`#0052CC`)과 보라색(`#6554C0`)
+    - **보조 색상**: 청록색(`#36B37E`)
+    - **강조 색상**: 주황색(`#FF5630`)
+    - **회사 폰트**: '`Noto Sans KR`'을 폰트로 사용 
+    */
+  /* 주요 색상 */
+  --color-flow-blue: #0052CC;
+  --color-flow-purple:  #6554C0;
+
+  /* 보조 색상 */
+  --color-flow-teal: #36B37E;
+
+  /* 강조 색상 */
+  --color-flow-orange: #FF5630;
+
+  /* 회사 폰트 */
+  --font-noto-sans-kr: "Noto Sans KR", sans-serif;
+}
