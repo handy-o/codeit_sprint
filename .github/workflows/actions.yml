@@ -27,3 +27,17 @@ jobs:
         run: |
           echo ${{ secrets.MY_NAME }}
           echo ${{ secrets.MY_HOBBY }}
+
+      - name: Github Repository 불러오기
+        uses: actions/checkout@v5 #uses: 액션을 지정하는 키워드이며, 해당 액션의 github 저장소와 사용할 버전을 가리킴
+
+      - name: Node.js 설치하기
+        uses: actions/setup-node@v6
+        with: 
+          node-version: '24'
+
+      - name: 의존성(라이브러리) 설치
+        run : npm ci
+
+      - name: 테스트 실행하기
+        run : npm run test
