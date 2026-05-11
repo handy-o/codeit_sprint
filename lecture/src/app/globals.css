@@ -23,4 +23,17 @@
 
   /* 회사 폰트 */
   --font-noto-sans-kr: "Noto Sans KR", sans-serif;
+
+  --animate-show-up : show-up 0.6s ease 0s both;
+    @keyframes  show-up {
+       from {
+        transform: translateY(20px);
+        opacity: 0;
+      }
+        to {
+        transform: translateY(0);
+        opacity: 1;
+        }
+    }
 }
+

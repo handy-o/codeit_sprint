@@ -1,0 +1,50 @@
+라이브러리 설치하고 진행 필요!
+
+"use client";
+
+import { useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+
+// 플러그인 등록
+gsap.registerPlugin(ScrollTrigger);
+
+export default function Home() {
+    const containerRef = useRef(null);
+
+    useGSAP();
+
+    return (
+        <div>
+            {/* 스크롤 확인용 상단 여백 */}
+            <div className="h-[50vh] flex items-center justify-center bg-gray-100">
+                <h1 className="text-3xl font-bold">👇 아래로 스크롤해서 충전하세요</h1>
+            </div>
+
+            {/* GSAP Pinning 영역 (화면에 꽉 차는 크기) */}
+            <div
+                ref={containerRef}
+                className="h-screen flex flex-col items-center justify-center bg-slate-900 text-white"
+            >
+                <h2 className="text-4xl font-bold mb-8">충전 중...</h2>
+
+                {/* 배터리 껍데기 */}
+                <div className="w-32 h-64 border-4 border-white rounded-xl p-2 relative">
+                    {/* 배터리 꼭다리 */}
+                    <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-4 bg-white rounded-t-sm" />
+
+                    {/* 배터리 내용물 (여기가 차오름) */}
+                    <div className="w-full h-full flex items-end">
+                        <div className="w-full h-0 bg-green-500 rounded-lg"></div>
+                    </div>
+                </div>
+            </div>
+
+            {/* 스크롤 확인용 하단 여백 */}
+            <div className="h-screen flex items-center justify-center bg-gray-100">
+                <h1 className="text-3xl font-bold">✅ 충전 완료!</h1>
+            </div>
+        </div>
+    );
+}

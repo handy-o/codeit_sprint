@@ -1,0 +1,49 @@
+// template.tsx는 Next.js에서 정해둔 특수 파일명
+"use client"
+import PageTransition from "@/components/PageTransition";
+// usePathname() 써서 강제로 remount 시켜야 함 (day4라는 같은 루트 안의 페이지를 동일하게 인식해서 리렌더링x 문제 해결)
+import { usePathname } from "next/navigation";
+
+// 대표적으로:
+// layout.tsx → 레이아웃 (유지됨)
+// page.tsx → 페이지
+// loading.tsx → 로딩 UI
+// error.tsx → 에러 UI
+// not-found.tsx → 404
+// template.tsx → 페이지 전환 시 매번 새로 렌더되는 래퍼
+
+// 👉 그래서 이름을 정확히 template.tsx로 써야만 동작함
+
+// 👉 페이지 이동 시:
+// layout.tsx → 그대로 유지
+// template.tsx → 매번 새로 실행
+
+
+
+export default function Template({
+    children,
+}: {
+    children: React.ReactNode;
+}) {
+    const pathname = usePathname();
+
+    return (
+        <PageTransition key={pathname}>
+            {children}
+        </PageTransition>
+    );
+}
+
+// 👉 key={pathname} 이거 하면:
+
+// 라우트 바뀔 때마다 key 변경
+// React가 다른 컴포넌트로 인식
+// 무조건 재마운트 → 애니메이션 다시 실행
+
+// 근데 너무 느려짐
+// 👉 template.tsx + key는
+// UX(애니메이션) vs 성능 트레이드오프
+
+// ✅ 해결 방향
+// 👉 template 제거 + AnimatePresence 방식
+// PageTransition 로 가서 수정한 후 layout.tsx로 가보자

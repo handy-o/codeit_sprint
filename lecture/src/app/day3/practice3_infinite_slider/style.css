@@ -1,0 +1,67 @@
+/* li reset */
+
+li {
+  display: inline-block;
+  list-style: none;
+}
+
+.slideWrap {
+  display: flex;
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 200px;
+  overflow: hidden;
+}
+
+.slideWrap .imgSlide {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 0;
+}
+
+.slideWrap .imgSlide li {
+  width: 200px;
+  height: 200px;
+  line-height: 200px;
+  margin-right: 5vw;
+  background-color: #ccc;
+  text-align: center;
+}
+
+.imgSlide.original {
+  /* animation 추가 */
+  animation: slide01 20s linear infinite 0s;
+}
+
+.imgSlide.clone {
+  /* animation 추가 */
+    animation: slide02 20s linear infinite 0s;
+}
+.slideWrap .imgSlide.clone li {
+    background-color: aquamarine;
+}
+
+/* original용  */
+@keyframes slide01 {
+    0% {transform: translateX(0)}
+    50% {transform: translateX(-100%)}
+    50.01% {transform: translateX(100%)}
+    100% {transform: translate(0)} 
+}
+
+
+/* clone용 */
+@keyframes slide02 {
+    0% {transform: translateX(0)} 
+    100% {transform: translate(-200%)}
+}
+
+
+
+
+
+
+
+

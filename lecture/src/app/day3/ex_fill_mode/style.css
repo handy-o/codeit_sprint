@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+.wrapper > div {
+  animation: anime 2s linear backwards 1 2s;
+}
+
+@keyframes anime {
+  from {
+    /* transform: translateX(20px); */
+    background-color: blue;
+  }
+  to {
+    /* transform: translateX(60px); */
+    background-color: yellow;
+  }
+}

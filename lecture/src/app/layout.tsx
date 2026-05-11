@@ -1,6 +1,7 @@
 // import { ThemeProvider } from "@/providers/ThemeProviders";
 import { ThemeProvider } from "next-themes";
 import "./globals.css";
+import PageTransition from "@/components/PageTransition";
 
 export default function RootLayout({
   children,
@@ -18,13 +19,16 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body>
+
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           enableColorScheme={false}
         >
+          {/* <PageTransition> */}
           {children}
+          {/* </PageTransition> */}
         </ThemeProvider>
       </body>
     </html>

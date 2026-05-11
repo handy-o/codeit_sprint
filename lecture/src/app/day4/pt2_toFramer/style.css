@@ -1,0 +1,20 @@
+/* @theme는 아무 CSS 파일에서나 되는 게 아니라 전역(global)에서만 먹습니다. */
+/* 아래 코드를 global.css에 옮겨야 실행이 됩니다. 백업용으로 넣어둠 */
+
+/* 하지만 본 예제는 아래 코드와 동일한 동작을 하도록 framer로 변경하는 문제입니다. (사용x) */
+@import "tailwindcss";
+
+@theme {
+  --animate-show-up: show-up 0.5s ease-in-out;
+
+  @keyframes show-up {
+    from {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+}
